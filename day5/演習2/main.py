@@ -11,6 +11,7 @@ import pickle
 import time
 import great_expectations as gx
 
+
 class DataLoader:
     """データロードを行うクラス"""
 
@@ -244,7 +245,7 @@ def test_model_performance():
 
     # 推論時間の確認
     assert (
-        metrics["inference_time"] < 1.0
+        metrics["inference_time"] < 0.0000001
     ), f"推論時間が長すぎます: {metrics['inference_time']}秒"
 
 
@@ -284,4 +285,4 @@ if __name__ == "__main__":
 
     # ベースラインとの比較
     baseline_ok = ModelTester.compare_with_baseline(metrics)
-    print(f"ベースライン比較: {'合格' if baseline_ok else '不合格'}")
+    print(f"ベースライン比較: {'成功' if baseline_ok else '失敗'}")
